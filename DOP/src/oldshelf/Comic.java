@@ -1,35 +1,58 @@
 package oldshelf;
 
 public class Comic extends Book {
+    private String title;
+    private final int ageOfMainCharacter;
+	private String author;
+	private int ISBN;
+	private int publishedyear;
+    // Constructor
+    public Comic(String title, int ageOfMainCharacter, String author, int publishedyear, int ISBN) {
+        // super(title, author, publishedyear, ISBN); 
+        this.title = title;
+		this.author = author;
+        this.ageOfMainCharacter = ageOfMainCharacter;
+    }
 
-	/* TODO: Add most strict modifiers here*/ String Title;
+    // Getter for title
+	public String getTitle() {
+        return title;
+    }
 
-	// TODO: Warning to be removed.
-	private final int ageOfMainCharacter;
+    public String getAuthor() {
+        return author;
+    }
 
-	// TODO Correct the error
-	public Comic() {
+	public int getISBN(){
+		return ISBN;
 	}
-	
-	// TODO : create a getter if required.
-	
-	// TODO: Create a setter if required
 
-	// TODO: write a toString method
-	@Override
-	public String toString() {
-		return null;
-	}
+    public int getPublishedYear() {
+        return publishedyear;
+    }
 
-	// TODO: Bonus: 
-	@Override
-	public int hashCode() {
-		// TODO: Fill up an arbitrary hash method that takes into account only the age of main characted and the Strign title
-	}
-	
-	// TODO: Bonus: 
-	@Override
-	public boolean equals(Object o) {
-		// TODO: Based on the information about hashCode write the equals method.
-	}
+	    
+    // Getter for ageOfMainCharacter
+    public int getAgeOfMainCharacter() {
+        return ageOfMainCharacter;
+    }
+	public void displayInfo() {
+        System.out.println(this.toString());
+    }
+    @Override
+    public String toString() {
+        return "Comic Title: " + getTitle() + ", Author: " + getAuthor() + 
+               ", Publication Year: " + getPublishedYear() + 
+               ", Age of Main Character: " + ageOfMainCharacter;
+    }
+
+    @Override
+    public int hashCode() {
+        return title.hashCode() + ageOfMainCharacter;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return ageOfMainCharacter == this.hashCode() && title.equals(this.title);
+    }    
 }
