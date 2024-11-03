@@ -1,47 +1,32 @@
-package Bonus;
-
-public sealed interface IBook<T> extends Comparable<IBook<T>> permits Comic, Fiction, TextBook {
-  
-
-    @Override
-    int compareTo(IBook<T> other);
+package bonus;
+public sealed interface Ibook<T> extends Comparable<Ibook<T>> permits Comic, Fiction, TextBook {
+    int compareTo(Ibook<T> other);
 }
 enum FictionType {
-
 	Comedy,
 	Tragedy,
-	GoK
+	GoK,DEFAULT
 }
-
-record Comic(String Title,int ageOfMainCharacter) implements IBook<Integer> {
-	
-	 @Override
-    public int compareTo(IBook<Integer> other) {
-        if (other instanceof Comic otherComic) {
-            return this.ageOfMainCharacter-otherComic.ageOfMainCharacter;
-        }
-        return 0; 
-    }
-
-}
-
-record Fiction(String name,FictionType type) implements IBook<FictionType> {
-
-	 public int compareTo(IBook<FictionType> other) {
+record Fiction(String name,FictionType type) implements Ibook<FictionType> {
+	 public int compareTo(Ibook<FictionType> other) {
         if (other instanceof Fiction otherFiction) {
             return this.type.compareTo(otherFiction.type); 
         }
         return 0; 
-
 	}
 }
-
-record TextBook(String subject) implements IBook<String>{
-
-	@Override
-    public int compareTo(IBook<String> other) {
+record TextBook(String subject) implements Ibook<String>{
+    public int compareTo(Ibook<String> other) {
         if (other instanceof TextBook otherTextBook) {
             return this.subject.compareTo(otherTextBook.subject);
+        }
+        return 0; 
+    }
+}
+record Comic(String Title,int ageOfMainCharacter) implements Ibook<Integer> {	
+    public int compareTo(Ibook<Integer> other) {
+        if (other instanceof Comic otherComic) {
+            return this.ageOfMainCharacter-otherComic.ageOfMainCharacter;
         }
         return 0; 
     }

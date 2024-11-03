@@ -1,6 +1,4 @@
 package newshelf;
-
-
 public class NewSelection {
 
 	// TODO: Complete this method 
@@ -11,7 +9,6 @@ public class NewSelection {
 	 * returns name, and if TextBook, returns subject.
 	 */
 	public static String getAgeOrTitle(Object o) {
-		
 		if (o instanceof Comic c) {
 			return ((Comic) o).Title();
 		}
@@ -24,9 +21,7 @@ public class NewSelection {
 
 		return null;
 	}
-
 	public static void main(String[] args) {
-		
 		TextBook tb1 = new TextBook("C programming");
 		Comic comic1 = new Comic("Batman",29);
 		Fiction fiction1 = new Fiction("Sorrow World",FictionType.Tragedy);

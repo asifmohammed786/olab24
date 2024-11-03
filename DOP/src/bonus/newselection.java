@@ -1,8 +1,6 @@
-package Bonus;
-
+package bonus;
 import java.util.*;
-
-public class NewSelection {
+public class newselection {
 	public static String getAgeOrTitle(Object o) {
 		switch(o){
 			case Comic(String Title,int ageOfMainCharacter) -> {
@@ -18,22 +16,18 @@ public class NewSelection {
 				return null;
 			}
 		}
-		
-
 	}
-
 	public static void main(String[] args) {
 		// TODO: Write a test code here and execute and text.
-		IBook<Integer> c1 = new Comic("Superhero Adventures", 12);
-        IBook<Integer> c2 = new Comic("Mystery Island", 15);
-        IBook<FictionType> f1 = new Fiction("Romeo and Juliet", FictionType.Tragedy);
-        IBook<FictionType> f2 = new Fiction("The Comedy of Errors", FictionType.Comedy);
-        IBook<String> t1 = new TextBook("Mathematics");
-        IBook<String> t2 = new TextBook("Physics");
-
-		System.out.println("\nTesting compareTo method:");
-        System.out.println("c1 vs c2: " + c1.compareTo(c2)); 
-        System.out.println("f1 vs f2: " + f1.compareTo(f2));
-        System.out.println("t1 vs t2: " + t1.compareTo(t2));
+		Ibook<Integer> comic1 = new Comic("Batman", 13);
+        Ibook<Integer> comic2 = new Comic("seven ages", 18);
+        Ibook<FictionType> fiction1 = new Fiction("Brave new world", FictionType.Tragedy);
+        Ibook<FictionType> fiction2 = new Fiction("The alchemist", FictionType.Comedy);
+        Ibook<String> textbook1 = new TextBook("C programming");
+        Ibook<String> textbook2 = new TextBook("java");
+		System.out.println("\nTesting of compareTo method:");
+        System.out.println("comic1 vs comic2: " + comic1.compareTo(comic2)); 
+        System.out.println("fiction1 vs fiction2: " + fiction2.compareTo(fiction2));
+        System.out.println("textbook1 vs textbook2: " + textbook1.compareTo(textbook2));
 	}
 }
